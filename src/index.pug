@@ -1,0 +1,54 @@
+include ./config/config
+
+doctype html
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Figuras Geométricas
+
+        link(rel="stylesheet", href="./assets/css/styles.css")
+    body
+        header.header
+            h1.header-title Figuras Geométricas
+            p.header-description Calcular diferentes medidas de figuras geométricas como área y perímetro.
+        
+        .answer
+            p#result El área del cuadrado es: 45 cm
+
+        section.figures
+            .box
+                .box-header
+                    h2 Cuadrado
+                .box-main
+                    p.box-main__text ¿Cuanto mide cada lado del cuadrado?
+                    input.box-main__input(type="number", name="inputSide", id="inputSide", placeholder="Ingrese los lados")
+
+                    each button,index in btnST
+                        button.box-main__btn(type="button", id=`${squares[index]}`) #{button}
+            
+            .box
+                .box-header
+                    h2 Triangulo
+                .box-main
+                    p.box-main__text ¿Cuanto mide cada lade del triangulo?
+                    each input in inputTr
+                        input.box-main__input(type="number", name=`inputSide${input}`, id=`inputSide${input}`, placeholder=`Ingrese lado 0${input}`)
+                    button.box-main__btn(type="button", id=`${triangle[0]}`) #{btnST[0]}
+
+                    p.box-main__text ¿Cuanto mide la base y altura del triangulo?
+                    input.box-main__input(type="number", name="inputBase", id="inputBase", placeholder="Ingrese Base")
+                    input.box-main__input(type="number", name="inputHeight", id="inputHeight", placeholder="Ingrese Altura")
+                    button.box-main__btn(type="button", id=`${triangle[1]}`) #{btnST[1]}
+
+            .box
+                .box-header
+                    h2 Circulo
+                .box-main
+                    p.box-main__text ¿Cuanto mide el radio del circulo?
+                    input.box-main__input(type="number", name="inputRadio", id="inputRadio", placeholder="Ingrese Radio")
+                    
+                    each button, index in btnCircle
+                        button.box-main__btn(type="button", id=`${circles[index]}`) #{button}
+        
+        script(src="./assets/js/geometric.min.js") 
